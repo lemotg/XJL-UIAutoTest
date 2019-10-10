@@ -29,7 +29,7 @@ runner.run(suite)
 fp.close()
 
 # 发送邮件开关is_debug,debug模式下，不发送邮件
-if ReadIni('Sys_config.ini', 'Base').get_value('is_debug') == 'True':
+if ReadIni('Sys_config.ini', 'Base').get_value('is_debug') == 'False':
     # 实例化对象
     demo = SendEmail(url)
     # 获取最新报告
