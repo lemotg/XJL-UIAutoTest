@@ -12,6 +12,11 @@ class LoginPage(object):
     def __init__(self, driver):
         self.element = PySelenium(driver)
 
+    # 清空输入框
+    def clear_input(self):
+        self.element.element_clear('Login', 'UserName')
+        self.element.element_clear('Login', 'PassWord')
+
     # 输入用户名
     def send_username(self, keywords):
         self.element.input_element('Login', 'UserName', keywords)

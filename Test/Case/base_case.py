@@ -13,7 +13,24 @@ from Utils.read_ini import ReadIni
 from Test.Business.login_business import LoginBusiness
 
 
-# Case基类
+# Case基类（登录业务）
+class LoginBaseCase(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.driver = SelectBrowser().select_browser('chrome')
+        cls.dr = PySelenium(cls.driver)
+        cls.dr.test_url(ReadIni('Sys_config.ini', 'Base').get_value('website_url'))
+        cls.dr.maximize_window()
+        # 登录业务流程-测试用例
+        cls.login = LoginBusiness(cls.driver)
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.driver.close()
+
+
+# Case基类（其他业务）
 class BaseCase(unittest.TestCase):
 
     @classmethod
@@ -22,8 +39,14 @@ class BaseCase(unittest.TestCase):
         cls.dr = PySelenium(cls.driver)
         cls.dr.test_url(ReadIni('Sys_config.ini', 'Base').get_value('website_url'))
         cls.dr.maximize_window()
-        # 登录业务-测试用例
+
+        # 登录业务流程
+        username = ReadIni('Sys_config.ini', 'Base').get_value('username')
+        password = ReadIni('Sys_config.ini', 'Base').get_value('password')
         cls.login = LoginBusiness(cls.driver)
+        cls.login.login_suc(username, password)
+
+        # 其他业务流程
 
     @classmethod
     def tearDownClass(cls) -> None:
