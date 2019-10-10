@@ -6,13 +6,12 @@
 
 import unittest
 
-from ..Case.demo_case import DemoCase
+from Test.Case.login_case import LoginCase
 
 
 def case_suite():
     suite = unittest.TestSuite()
-    # 新增用例集
-    suite.addTest(DemoCase('test_keywords_null'))
-    suite.addTest(DemoCase('test_search_keywords'))
+    # 登录用例集
+    suite.addTest(LoginCase('test_000'))
 
     return suite
