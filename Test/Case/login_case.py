@@ -18,7 +18,7 @@ class LoginCase(BaseCase, LogInfo):
         """ 登录成功 """
         org_name = self.login.login_suc()
         self.log.info(org_name)
-        self.assertEqual('重构测试Rock1', org_name, '登录失败 --- 测试用例不通过')
+        self.assertEqual('重构测试Rock', org_name, '登录失败 --- 测试用例不通过')
 
 
 if __name__ == '__main__':

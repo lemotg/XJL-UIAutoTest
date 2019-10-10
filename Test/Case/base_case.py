@@ -9,6 +9,7 @@ import unittest
 from PySe.operation import PySelenium
 from PySe.driver import SelectBrowser
 
+from Utils.read_ini import ReadIni
 from Test.Business.login_business import LoginBusiness
 
 
@@ -19,7 +20,7 @@ class BaseCase(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.driver = SelectBrowser().select_browser('chrome')
         cls.dr = PySelenium(cls.driver)
-        cls.dr.test_url('https://dev.xiaojing0.com/admin/login?staff=111')
+        cls.dr.test_url(ReadIni('Sys_config.ini', 'Base').get_value('website_url'))
         cls.dr.maximize_window()
         # 登录业务-测试用例
         cls.login = LoginBusiness(cls.driver)
