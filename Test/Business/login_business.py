@@ -18,3 +18,8 @@ class LoginBusiness(object):
         self.login_Business.send_password(password)
         self.login_Business.click_submit()
         return self.login_Business.get_org_name()
+
+    # 退出成功
+    def logout_suc(self):
+        self.login_Business.click_logout()
+        return self.login_Business.get_welcome()

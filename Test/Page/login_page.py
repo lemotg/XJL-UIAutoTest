@@ -7,7 +7,7 @@
 from PySe.operation import PySelenium
 
 
-# 登录页面
+# 登录&退出
 class LoginPage(object):
     def __init__(self, driver):
         self.element = PySelenium(driver)
@@ -32,3 +32,11 @@ class LoginPage(object):
     # 获取首页机构名称
     def get_org_name(self):
         return self.element.get_element_text('Index', 'OrgName')
+
+    # 点击退出
+    def click_logout(self):
+        self.element.click_element('Index', 'Logout')
+
+    # 获取欢迎登录文字
+    def get_welcome(self):
+        return self.element.get_element_text('Login', 'Welcome')

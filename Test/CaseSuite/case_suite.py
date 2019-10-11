@@ -12,8 +12,9 @@ from Utils.get_log import LogInfo
 
 def case_suite():
     suite = unittest.TestSuite()
-    # 登录用例集
+    # 登录&退出用例集
     LogInfo().log.info('Login Cases Suite Start Running ')
     suite.addTest(LoginCase('test_1'))
+    suite.addTest(LoginCase('test_2'))
 
     return suite

@@ -2,7 +2,7 @@
 # @Time    : 2019/10/10 17:46
 # @Author  : DannyDong
 # @File    : case01_Login.py
-# @describe: 登录测试用例
+# @describe: 登录&退出测试用例
 
 import unittest
 
@@ -12,7 +12,7 @@ from Test.Case.base_case import LoginBaseCase
 
 
 class LoginCase(LoginBaseCase, LogInfo):
-    """ 登录测试用例 """
+    """ 登录&退出测试用例 """
 
     @LogInfo.get_error
     def test_1(self):
@@ -26,6 +26,13 @@ class LoginCase(LoginBaseCase, LogInfo):
         # 获取Org名称
         org_name = self.login.login_suc(username, password)
         self.assertEqual('重构测试Rock', org_name, '机构名称不一致 --- 测试用例不通过')
+
+    @LogInfo.get_error
+    def test_2(self):
+        """ 退出流程 """
+        self.log.info('TestCase2 Start Running')
+        welcome = self.login.logout_suc()
+        self.assertEqual('欢迎登录', welcome, '首页欢迎语句错误 --- 测试用例不通过')
 
 
 if __name__ == '__main__':
