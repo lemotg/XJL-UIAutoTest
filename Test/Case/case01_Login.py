@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/10 17:46
 # @Author  : DannyDong
-# @File    : login_case.py
+# @File    : case01_Login.py
 # @describe: 登录测试用例
 
 import unittest
@@ -15,9 +15,9 @@ class LoginCase(LoginBaseCase, LogInfo):
     """ 登录测试用例 """
 
     @LogInfo.get_error
-    def test_000(self):
-        """ 登录成功 """
-        self.log.info('TestCase000 Start Running')
+    def test_1(self):
+        """ 登录流程 """
+        self.log.info('TestCase1 Start Running')
 
         # 获取用户名和密码
         username = ReadIni('Sys_config.ini', 'Base').get_value('username')

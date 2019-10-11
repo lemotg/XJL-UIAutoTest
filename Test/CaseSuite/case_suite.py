@@ -6,7 +6,7 @@
 
 import unittest
 
-from Test.Case.login_case import LoginCase
+from Test.Case.case01_Login import LoginCase
 from Utils.get_log import LogInfo
 
 
@@ -14,6 +14,6 @@ def case_suite():
     suite = unittest.TestSuite()
     # 登录用例集
     LogInfo().log.info('Login Cases Suite Start Running ')
-    suite.addTest(LoginCase('test_000'))
+    suite.addTest(LoginCase('test_1'))
 
     return suite
