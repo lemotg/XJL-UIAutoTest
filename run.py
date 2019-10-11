@@ -6,11 +6,19 @@
 
 import time
 
+from Utils.webhook import WebHook
 from Utils.read_ini import ReadIni
 from Utils.send_email import SendEmail
 from Utils.HTMLTestRunner_cn import HTMLTestRunner
 from Test.CaseSuite.case_suite import case_suite
 
+# 获取WebHook要@的人
+phone = ReadIni('Sys_config.ini', 'WEBHOOK').get_value('phone')
+
+# WebHook发送开始通知
+WebHook().web_hook('UI自动化测试任务开始', phone)
+
+# 实例化测试集
 suite = case_suite()
 
 read_ini = ReadIni('Sys_config.ini', 'Report')
@@ -38,3 +46,6 @@ if ReadIni('Sys_config.ini', 'Base').get_value('is_debug') == 'False':
     demo.send_mail(new_report)
 else:
     pass
+
+# WebHook发送结束通知
+WebHook().web_hook('UI自动化测试任务结束', phone)
