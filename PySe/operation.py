@@ -104,13 +104,16 @@ class PySelenium(object):
     def get_ul_li(self, node_kw, key, li_num=None):
         try:
             element = self.get_element(node_kw, key)
+            self.sleep()
             element_li = element.find_elements_by_css_selector('li')
             if li_num is None:
                 count = len(element_li)
                 i = random.random(0, count)
                 element_li[i].click()
+                self.sleep()
             else:
-                element_li[li_num].click()
+                self.driver.execute_script("arguments[0].click();", element_li[li_num])
+                self.sleep()
         except Exception:
             raise ValueError('element错误！')
 
