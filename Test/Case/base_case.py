@@ -10,7 +10,9 @@ from PySe.operation import PySelenium
 from PySe.driver import SelectBrowser
 
 from Utils.read_ini import ReadIni
+from Utils.get_log import LogInfo
 from Test.Business.login_business import LoginBusiness
+from Test.Business.home_business import HomeBusiness
 
 
 # Case基类（登录业务）
@@ -31,7 +33,7 @@ class LoginBaseCase(unittest.TestCase):
 
 
 # Case基类（其他业务）
-class BaseCase(unittest.TestCase):
+class BaseCase(unittest.TestCase, LogInfo):
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -45,6 +47,11 @@ class BaseCase(unittest.TestCase):
         password = ReadIni('Sys_config.ini', 'Base').get_value('password')
         cls.login = LoginBusiness(cls.driver)
         cls.login.login_suc(username, password)
+
+        # 选择校区
+        cls.campus_select = HomeBusiness(cls.driver)
+        cls.campus_select.select_campus(4)
+        cls.log.info('Campus Selected')
 
         # 其他业务流程
 
