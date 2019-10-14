@@ -2,3 +2,4 @@
 Config/**/*
 logs/**/*
 Result/**/*
+PySe/test.py

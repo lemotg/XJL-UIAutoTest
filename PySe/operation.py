@@ -5,6 +5,7 @@
 # @describe: 二次封装selenium
 
 import time
+import random
 
 from Utils.read_ini import ReadIni
 
@@ -96,6 +97,20 @@ class PySelenium(object):
         try:
             self.sleep()
             return self.get_element(node_kw, key).text
+        except Exception:
+            raise ValueError('element错误！')
+
+    # 获取下拉菜单选项
+    def get_ul_li(self, node_kw, key, li_num=None):
+        try:
+            element = self.get_element(node_kw, key)
+            element_li = element.find_elements_by_css_selector('li')
+            if li_num is None:
+                count = len(element_li)
+                i = random.random(0, count)
+                return element_li[i]
+            else:
+                return element_li[li_num]
         except Exception:
             raise ValueError('element错误！')
 
