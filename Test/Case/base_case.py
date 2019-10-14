@@ -21,12 +21,15 @@ class LoginBaseCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        LogInfo().log.info('-----初始化开始-----')
+        # 初始化开始
+        LogInfo().log.info('Initialization Start')
         cls.driver = SelectBrowser().select_browser('chrome')
         cls.dr = PySelenium(cls.driver)
         cls.dr.test_url(ReadIni('Sys_config.ini', 'Base').get_value('website_url'))
         cls.dr.maximize_window()
-        LogInfo().log.info('-----初始化完毕-----')
+        # 初始化开始
+        LogInfo().log.info('Initialization Completed')
+
         # 登录业务流程-测试用例
         LogInfo().log.info('Login Cases Suite Start Running ')
         cls.login = LoginBusiness(cls.driver)
@@ -41,15 +44,17 @@ class BaseCase(unittest.TestCase, LogInfo):
 
     @classmethod
     def setUpClass(cls) -> None:
-        LogInfo().log.info('-----初始化开始-----')
+        # 初始化开始
+        LogInfo().log.info('Initialization Start')
         cls.driver = SelectBrowser().select_browser('chrome')
         cls.dr = PySelenium(cls.driver)
         cls.dr.test_url(ReadIni('Sys_config.ini', 'Base').get_value('website_url'))
         cls.dr.maximize_window()
-        LogInfo().log.info('-----初始化完毕-----')
+        # 初始化结束
+        LogInfo().log.info('Initialization Completed')
 
-        # 登录业务流程
-        LogInfo().log.info('-----非登录用例准备执行，正常执行登录流程-----')
+        # 前置条件：登录系统
+        LogInfo().log.info('Preposition: Login System')
         username = ReadIni('Sys_config.ini', 'Base').get_value('username')
         password = ReadIni('Sys_config.ini', 'Base').get_value('password')
         cls.login = LoginBusiness(cls.driver)
@@ -57,7 +62,7 @@ class BaseCase(unittest.TestCase, LogInfo):
 
         # 选择校区
         cls.campus_select = HomeBusiness(cls.driver)
-        cls.campus_select.select_campus(4)
+        cls.campus_select.select_campus(0)
         cls.log.info('Campus Selected')
 
         # 员工管理业务流程
