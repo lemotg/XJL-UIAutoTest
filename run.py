@@ -15,8 +15,10 @@ from Test.CaseSuite.case_suite import case_suite
 # 获取WebHook要@的人
 phone = ReadIni('Sys_config.ini', 'WEBHOOK').get_value('phone')
 
-# WebHook发送开始通知
-WebHook().web_hook('UI自动化测试任务开始', phone)
+# 如果是debug模式，不发生WebHook
+if ReadIni('Sys_config.ini', 'Base').get_value('is_debug') == 'False':
+    # WebHook发送开始通知
+    WebHook().web_hook('UI自动化测试任务开始', phone)
 
 # 实例化测试集
 suite = case_suite()
@@ -36,7 +38,7 @@ runner = HTMLTestRunner(
 runner.run(suite)
 fp.close()
 
-# 发送邮件开关is_debug,debug模式下，不发送邮件
+# 发送邮件开关is_debug,debug模式下，不发送邮件和WebHook
 if ReadIni('Sys_config.ini', 'Base').get_value('is_debug') == 'False':
     # 实例化对象
     demo = SendEmail(url)
@@ -44,8 +46,7 @@ if ReadIni('Sys_config.ini', 'Base').get_value('is_debug') == 'False':
     new_report = demo.new_report()
     # 发送测试报告
     demo.send_mail(new_report)
+    # WebHook发送结束通知
+    WebHook().web_hook('UI自动化测试任务结束', phone)
 else:
     pass
-
-# WebHook发送结束通知
-WebHook().web_hook('UI自动化测试任务结束', phone)
