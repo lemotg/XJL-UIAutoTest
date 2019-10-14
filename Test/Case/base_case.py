@@ -29,7 +29,7 @@ class LoginBaseCase(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls) -> None:
-        cls.driver.close()
+        cls.driver.quit()
 
 
 # Case基类（其他业务）
@@ -57,4 +57,4 @@ class BaseCase(unittest.TestCase, LogInfo):
 
     @classmethod
     def tearDownClass(cls) -> None:
-        cls.driver.close()
+        cls.driver.quit()
