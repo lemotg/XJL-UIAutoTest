@@ -108,9 +108,9 @@ class PySelenium(object):
             if li_num is None:
                 count = len(element_li)
                 i = random.random(0, count)
-                return element_li[i]
+                element_li[i].click()
             else:
-                return element_li[li_num]
+                element_li[li_num].click()
         except Exception:
             raise ValueError('element错误！')
 
