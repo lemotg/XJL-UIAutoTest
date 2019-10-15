@@ -8,6 +8,7 @@ import unittest
 
 from Test.Case.case01_Login import LoginCase
 from Test.Case.case02_Account import AccountCase
+from Test.Case.case03_Course import CourseCase
 
 
 def case_suite():
@@ -20,5 +21,8 @@ def case_suite():
     suite.addTest(AccountCase('test_1'))
     suite.addTest(AccountCase('test_2'))
     suite.addTest(AccountCase('test_3'))
+
+    # 课程管理用例集
+    suite.addTest(CourseCase('test_1'))
 
     return suite
