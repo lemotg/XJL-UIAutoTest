@@ -57,3 +57,21 @@ class CourseBusiness(object):
     # 获取是否有套餐
     def get_course_list_package(self):
         return self.course_business.get_list_course_package()
+
+    # 进入线上视频课页面
+    def go_online_course(self):
+        self.course_business.click_online_course_tab()
+
+    # 选择线上视频课
+    def click_online_course(self):
+        self.course_business.click_online_course()
+        return self.course_business.get_online_first_input_title()
+
+    # 添加线上视频课
+    def add_online_course(self, name):
+        self.course_business.input_course_name(name)
+        self.course_business.submit_online_course_info()
+
+    # 获取线上视频课列表中课程名称
+    def get_online_list_name(self):
+        return self.course_business.get_list_online_course_name()

@@ -29,5 +29,7 @@ def case_suite():
     suite.addTest(CourseCase('test_4'))
     suite.addTest(CourseCase('test_5'))
     suite.addTest(CourseCase('test_6'))
+    suite.addTest(CourseCase('test_7'))
+    suite.addTest(CourseCase('test_8'))
 
     return suite

@@ -97,3 +97,19 @@ class CoursePage(object):
     # 获取列表中是否有套餐
     def get_list_course_package(self):
         return self.element.get_element_text('CourseManage', 'CourseListPackage')
+
+    # 选择线上视频课Tab
+    def click_online_course_tab(self):
+        self.element.js_click_element('CourseManage', 'OnlineTab')
+
+    # 获取第一个输入框的Title
+    def get_online_first_input_title(self):
+        return self.element.get_element_text('CourseManage', 'CourseNameTitle')
+
+    # 保存课程信息
+    def submit_online_course_info(self):
+        self.element.js_click_element('CourseManage', 'SaveOnlineCourseInfo')
+
+    # 获取线上课程列表中课程名称
+    def get_list_online_course_name(self):
+        return self.element.get_element_text('CourseManage', 'OnlineListName')

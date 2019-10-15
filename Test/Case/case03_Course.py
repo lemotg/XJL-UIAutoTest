@@ -134,6 +134,28 @@ class CourseCase(BaseCase, LogInfo):
         self.assertEqual('1对1', course_type, '课程类型不一致 --- 测试用例不通过')
         self.assertNotEqual('暂未设置', package, '是否有套餐不一致 --- 测试用例不通过')
 
+    def test_7(self):
+        """ 打开线上视频课添加弹框"""
+        self.log.info('TestCase7 Start Running')
+
+        self.course.go_online_course()
+        self.course.open_add_dialog()
+        text = self.course.click_online_course()
+
+        self.assertEqual('课程名称:', text, '第一个标题不一致 --- 测试用例不通过')
+
+    def test_8(self):
+        """ 添加线上视频课 """
+        self.log.info('TestCase7 Start Running')
+
+        # 生成数据
+        course_name = cr_course()
+
+        self.course.add_online_course(course_name)
+        text = self.course.get_online_list_name()
+
+        self.assertEqual(course_name, text, '课程名称不一致 --- 测试用例不通过')
+
 
 if __name__ == '__main__':
     unittest.main()
