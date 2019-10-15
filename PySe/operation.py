@@ -18,7 +18,7 @@ class PySelenium(object):
     def __init__(self, driver):
         self.driver = driver
         self.wait_wait()
-        self.wait_time = 0.5
+        self.wait_time = 1
 
     # 获取元素
     def get_element(self, node_kw, key):
@@ -108,7 +108,7 @@ class PySelenium(object):
             element_li = element.find_elements_by_css_selector('li')
             if li_num is None:
                 count = len(element_li)
-                i = random.random(0, count)
+                i = random.randint(0, count-1)
                 element_li[i].click()
                 self.sleep()
             else:

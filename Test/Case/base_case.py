@@ -62,7 +62,7 @@ class BaseCase(unittest.TestCase, LogInfo):
 
         # 选择校区
         cls.campus_select = HomeBusiness(cls.driver)
-        cls.campus_select.select_campus(0)
+        cls.campus_select.select_campus(4)
         cls.log.info('Campus Selected')
 
         # 员工管理业务流程

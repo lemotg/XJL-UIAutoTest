@@ -7,7 +7,7 @@
 import unittest
 
 from Utils.get_log import LogInfo
-from Utils.read_ini import ReadIni
+from Utils.create_data import cr_staff_name, cr_phone
 from Test.Case.base_case import BaseCase
 
 
@@ -23,9 +23,22 @@ class AccountCase(BaseCase, LogInfo):
 
     def test_2(self):
         """ 打开员工添加弹框 """
-        self.log.info('TestCase1 Start Running')
+        self.log.info('TestCase2 Start Running')
         text = self.account.open_add_dialog()
         self.assertEqual('新建员工', text, '弹框标题不一致 --- 测试用例不通过')
+
+    def test_3(self):
+        """ 添加员工 """
+        self.log.info('TestCase3 Start Running')
+        add_name = cr_staff_name()
+        add_phone = cr_phone()
+        self.account.add_account(add_name, add_phone)
+
+        # 获取列表中第一条数据，作为断言数据
+        name = self.account.get_account_name()
+        phone = self.account.get_account_phone()
+        self.assertEqual(add_name, name, '列表员工名称与添加的不一致 --- 测试用例不通过')
+        self.assertEqual(add_phone, phone, '列表员工电话与添加的不一致 --- 测试用例不通过')
 
 
 if __name__ == '__main__':

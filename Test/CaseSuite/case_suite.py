@@ -19,5 +19,6 @@ def case_suite():
     # 员工管理用例集
     suite.addTest(AccountCase('test_1'))
     suite.addTest(AccountCase('test_2'))
+    suite.addTest(AccountCase('test_3'))
 
     return suite
