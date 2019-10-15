@@ -29,8 +29,20 @@ def cr_age():
 
 # 生成课时数量
 def cr_course_num():
-    age = random.randint(10, 100)
-    return age
+    num = random.randint(10, 100)
+    return num
+
+
+# 生成课时时间
+def cr_course_time():
+    time = random.randint(10, 100)
+    return time
+
+
+# 生成课时单价
+def cr_course_price():
+    price = random.randint(10, 100)
+    return price
 
 
 # 生成电话号码

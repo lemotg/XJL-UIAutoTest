@@ -25,5 +25,9 @@ def case_suite():
     # 课程管理用例集
     suite.addTest(CourseCase('test_1'))
     suite.addTest(CourseCase('test_2'))
+    suite.addTest(CourseCase('test_3'))
+    suite.addTest(CourseCase('test_4'))
+    suite.addTest(CourseCase('test_5'))
+    suite.addTest(CourseCase('test_6'))
 
     return suite
