@@ -27,3 +27,7 @@ class AccountPage(object):
     # 点击新增人员按钮
     def click_add_account_btn(self):
         self.element.click_element('AccountManage', 'AddAccountBtn')
+
+    # 获取对话框标题
+    def get_dialog_title(self):
+        return self.element.get_element_text('AccountManage', 'DialogTitle')

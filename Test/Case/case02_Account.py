@@ -21,6 +21,12 @@ class AccountCase(BaseCase, LogInfo):
         text = self.account.go_account_manage()
         self.assertEqual('新增员工', text, '按钮文字不一致 --- 测试用例不通过')
 
+    def test_2(self):
+        """ 打开员工添加弹框 """
+        self.log.info('TestCase1 Start Running')
+        text = self.account.open_add_dialog()
+        self.assertEqual('新建员工', text, '弹框标题不一致 --- 测试用例不通过')
+
 
 if __name__ == '__main__':
     unittest.main()

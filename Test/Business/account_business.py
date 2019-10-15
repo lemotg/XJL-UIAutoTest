@@ -16,3 +16,8 @@ class AccountBusiness(object):
         self.account_business.click_menu_manage()
         self.account_business.click_account()
         return self.account_business.get_add_text()
+
+    # 打开员工添加弹框
+    def open_add_dialog(self):
+        self.account_business.click_add_account_btn()
+        return self.account_business.get_dialog_title()
