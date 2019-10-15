@@ -27,3 +27,7 @@ class CoursePage(object):
     # 点击新增课程按钮
     def click_add_course_btn(self):
         self.element.click_element('CourseManage', 'AddCourseBtn')
+
+    # 获取对话框标题
+    def get_dialog_title(self):
+        return self.element.get_element_text('CourseManage', 'DialogTitle')

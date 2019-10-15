@@ -16,3 +16,8 @@ class CourseBusiness(object):
         self.course_business.click_menu_education()
         self.course_business.click_course()
         return self.course_business.get_add_text()
+
+    # 打开课程添加弹框
+    def open_add_dialog(self):
+        self.course_business.click_add_course_btn()
+        return self.course_business.get_dialog_title()
