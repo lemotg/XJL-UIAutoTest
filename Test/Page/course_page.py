@@ -16,7 +16,7 @@ class CoursePage(object):
     def click_menu_education(self):
         self.element.js_click_element('Index', 'MenuEducation')
 
-    # 选择人员管理
+    # 选择课程管理
     def click_course(self):
         self.element.get_ul_li('Index', 'EducationList', 4)
 
