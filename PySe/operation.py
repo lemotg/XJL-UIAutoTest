@@ -70,6 +70,7 @@ class PySelenium(object):
             element = self.get_element(node_kw, key)
             self.sleep()
             element.click()
+            self.sleep()
         except Exception:
             raise ValueError('element错误！')
 
