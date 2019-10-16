@@ -69,4 +69,21 @@ class ClassPage(object):
 
     # 获取线下课程列表中第一条数据的班级名称
     def get_list_class_name(self, num):
-        return self.element.get_tr_td('ClassManage', 'OfflineListFirstRow', num)
+        return self.element.get_tr_td_desc('ClassManage', 'OfflineListFirstRow', num)
+
+    # 选择线上视频班级
+    def click_online_class_tab(self):
+        self.element.js_click_element('ClassManage', 'OnlineTab')
+
+    # 选择课程信息
+    def select_online_course(self):
+        self.element.js_click_element('ClassManage', 'SelectCourse')
+        self.element.get_ul_li('ClassManage', 'SelectOnlineList')
+
+    # 保存新班级信息
+    def submit_online_class_info(self):
+        self.element.js_click_element('ClassManage', 'SaveOnlineClassInfo')
+
+    # 获取线上课程列表中第一条数据的班级名称
+    def get_list_online_class_name(self, num):
+        return self.element.get_tr_td_asc('ClassManage', 'OnlineListFirstRow', num)

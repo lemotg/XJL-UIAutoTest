@@ -36,6 +36,21 @@ class ClassCase(BaseCase, LogInfo):
         class_name = self.classroom.add_offline_class(name, num, 0)
         self.assertEqual(name, class_name, '班级名称不一致 --- 测试用例不通过')
 
+    def test_4(self):
+        """ 打开线上课程班级添加弹框 """
+        self.log.info('TestCase4 Start Running')
+        text = self.classroom.open_add_online_dialog()
+        self.assertEqual('新建视频课程班级', text, '弹框标题不一致 --- 测试用例不通过')
+
+    def test_5(self):
+        """ 添加线上课程班级 """
+        self.log.info('TestCase5 Start Running')
+        # 生成数据
+        name = cr_class()
+
+        class_name = self.classroom.add_online_class(name, 0)
+        self.assertEqual(name, class_name, '班级名称不一致 --- 测试用例不通过')
+
 
 if __name__ == '__main__':
     unittest.main()

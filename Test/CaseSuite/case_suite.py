@@ -37,5 +37,7 @@ def case_suite():
     suite.addTest(ClassCase('test_1'))
     suite.addTest(ClassCase('test_2'))
     suite.addTest(ClassCase('test_3'))
+    suite.addTest(ClassCase('test_4'))
+    suite.addTest(ClassCase('test_5'))
 
     return suite

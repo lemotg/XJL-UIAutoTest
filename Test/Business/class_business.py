@@ -17,7 +17,7 @@ class ClassBusiness(object):
         self.class_business.click_class()
         return self.class_business.get_add_text()
 
-    # 打开课程添加弹框
+    # 打开班级添加弹框
     def open_add_dialog(self):
         self.class_business.click_add_class_btn()
         return self.class_business.get_dialog_title()
@@ -32,3 +32,16 @@ class ClassBusiness(object):
         self.class_business.select_sup_teacher()
         self.class_business.submit_class_info()
         return self.class_business.get_list_class_name(td_num)
+
+    # 打开线上课程班级添加弹框
+    def open_add_online_dialog(self):
+        self.class_business.click_online_class_tab()
+        self.class_business.click_add_class_btn()
+        return self.class_business.get_dialog_title()
+
+    # 添加线上课程班级信息
+    def add_online_class(self, name, td_num):
+        self.class_business.select_online_course()
+        self.class_business.input_class_name(name)
+        self.class_business.submit_online_class_info()
+        return self.class_business.get_list_online_class_name(td_num)
