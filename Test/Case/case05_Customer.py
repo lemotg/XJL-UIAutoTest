@@ -19,6 +19,12 @@ class CustomerCase(BaseCase, LogInfo):
         text = self.customer.go_customer()
         self.assertEqual('快速录入', text, '按钮文字不一致 --- 测试用例不通过')
 
+    def test_2(self):
+        """ 打开客户快速录入弹框 """
+        self.log.info('TestCase2 Start Running')
+        text = self.customer.open_add_dialog()
+        self.assertEqual('新增意向学员', text, '弹框标题不一致 --- 测试用例不通过')
+
 
 if __name__ == '__main__':
     unittest.main()

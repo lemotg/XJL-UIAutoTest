@@ -16,3 +16,8 @@ class CustomerBusiness(object):
         self.customer_business.click_menu_solicit()
         self.customer_business.click_customer()
         return self.customer_business.get_add_text()
+
+    # 打开客户快速录入弹框
+    def open_add_dialog(self):
+        self.customer_business.click_add_customer_btn()
+        return self.customer_business.get_dialog_title()

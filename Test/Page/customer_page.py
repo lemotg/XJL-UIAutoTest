@@ -27,3 +27,7 @@ class CustomerPage(object):
     # 点击快速录入按钮
     def click_add_customer_btn(self):
         self.element.click_element('Customer', 'AddCustomerBtn')
+
+    # 获取对话框文字
+    def get_dialog_title(self):
+        return self.element.get_element_text('Customer', 'DialogTitle')
