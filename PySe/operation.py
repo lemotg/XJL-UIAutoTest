@@ -18,7 +18,7 @@ class PySelenium(object):
     def __init__(self, driver):
         self.driver = driver
         self.wait_wait()
-        self.wait_time = 1
+        self.wait_time = 0.5
 
     # 获取元素
     def get_element(self, node_kw, key):
@@ -118,13 +118,23 @@ class PySelenium(object):
         except Exception:
             raise ValueError('element错误！')
 
-    # 获取表格数据
-    def get_tr_td(self, node_kw, key, td_num):
+    # 获取表格数据(最新的至于底部)
+    def get_tr_td_asc(self, node_kw, key, td_num):
         try:
             self.sleep()
             element = self.get_element(node_kw, key)
             self.sleep()
-            return element.find_elements_by_css_selector('td')[td_num].text
+            return element.find_elements_by_css_selector('tr')[-1].find_elements_by_css_selector('td')[td_num].text
+        except Exception:
+            raise ValueError('element错误！')
+
+    # 获取表格数据(最新的至于顶部)
+    def get_tr_td_desc(self, node_kw, key, td_num):
+        try:
+            self.sleep()
+            element = self.get_element(node_kw, key)
+            self.sleep()
+            return element.find_elements_by_css_selector('tr')[0].find_elements_by_css_selector('td')[td_num].text
         except Exception:
             raise ValueError('element错误！')
 
