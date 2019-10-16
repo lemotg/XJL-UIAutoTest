@@ -36,5 +36,6 @@ def case_suite():
     # 班级管理用例集
     suite.addTest(ClassCase('test_1'))
     suite.addTest(ClassCase('test_2'))
+    suite.addTest(ClassCase('test_3'))
 
     return suite

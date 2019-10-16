@@ -21,3 +21,14 @@ class ClassBusiness(object):
     def open_add_dialog(self):
         self.class_business.click_add_class_btn()
         return self.class_business.get_dialog_title()
+
+    # 添加线下课程班级信息
+    def add_offline_class(self, name, num, td_num):
+        self.class_business.select_course()
+        self.class_business.input_class_name(name)
+        self.class_business.select_class_time()
+        self.class_business.select_teacher()
+        self.class_business.input_student_num(num)
+        self.class_business.select_sup_teacher()
+        self.class_business.submit_class_info()
+        return self.class_business.get_list_class_name(td_num)

@@ -7,6 +7,7 @@
 import unittest
 
 from Utils.get_log import LogInfo
+from Utils.create_data import cr_class, cr_class_num
 from Test.Case.base_case import BaseCase
 
 
@@ -25,7 +26,16 @@ class ClassCase(BaseCase, LogInfo):
         text = self.classroom.open_add_dialog()
         self.assertEqual('新建班级', text, '弹框标题不一致 --- 测试用例不通过')
 
+    def test_3(self):
+        """ 添加线下课程班级 """
+        self.log.info('TestCase3 Start Running')
+        # 生成数据
+        name = cr_class()
+        num = cr_class_num()
+
+        class_name = self.classroom.add_offline_class(name, num, 0)
+        self.assertEqual(name, class_name, '班级名称不一致 --- 测试用例不通过')
+
 
 if __name__ == '__main__':
     unittest.main()
-

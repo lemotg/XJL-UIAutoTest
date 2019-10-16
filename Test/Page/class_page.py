@@ -31,3 +31,42 @@ class ClassPage(object):
     # 获取对话框标题
     def get_dialog_title(self):
         return self.element.get_element_text('ClassManage', 'DialogTitle')
+
+    # 选择课程信息
+    def select_course(self):
+        self.element.js_click_element('ClassManage', 'SelectCourse')
+        self.element.get_ul_li('ClassManage', 'SelectList')
+
+    # 输入班级名称
+    def input_class_name(self, content):
+        self.element.click_element('ClassManage', 'ClassName')
+        self.element.element_force_clear('ClassManage', 'ClassName')
+        self.element.input_element('ClassManage', 'ClassName', content)
+
+    # 选择开课时间
+    def select_class_time(self):
+        self.element.click_element('ClassManage', 'ClassTime')
+        self.element.js_click_element('ClassManage', 'Today')
+
+    # 选择上课教师
+    def select_teacher(self):
+        self.element.js_click_element('ClassManage', 'ClassTeacher')
+        self.element.get_ul_li('ClassManage', 'SelectList')
+
+    # 输入预招人数
+    def input_student_num(self, content):
+        self.element.element_force_clear('ClassManage', 'ClassNum')
+        self.element.input_element('ClassManage', 'ClassNum', content)
+
+    # 选择助教
+    def select_sup_teacher(self):
+        self.element.js_click_element('ClassManage', 'ClassSup')
+        self.element.get_ul_li('ClassManage', 'SelectList')
+
+    # 保存新班级信息
+    def submit_class_info(self):
+        self.element.js_click_element('ClassManage', 'SaveClassInfo')
+
+    # 获取线下课程列表中第一条数据的班级名称
+    def get_list_class_name(self, num):
+        return self.element.get_tr_td('ClassManage', 'OfflineListFirstRow', num)
