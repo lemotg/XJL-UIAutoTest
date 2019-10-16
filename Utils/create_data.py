@@ -23,7 +23,7 @@ def cr_staff_name():
 
 # 生成年龄
 def cr_age():
-    age = random.randint(1, 100)
+    age = random.randint(1, 50)
     return age
 
 
