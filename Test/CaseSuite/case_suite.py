@@ -10,6 +10,7 @@ from Test.Case.case01_Login import LoginCase
 from Test.Case.case02_Account import AccountCase
 from Test.Case.case03_Course import CourseCase
 from Test.Case.case04_Class import ClassCase
+from Test.Case.case05_Customer import CustomerCase
 
 
 def case_suite():
@@ -39,5 +40,8 @@ def case_suite():
     suite.addTest(ClassCase('test_3'))
     suite.addTest(ClassCase('test_4'))
     suite.addTest(ClassCase('test_5'))
+
+    # 客户池用例集
+    suite.addTest(CustomerCase('test_1'))
 
     return suite
