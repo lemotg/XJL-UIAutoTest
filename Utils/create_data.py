@@ -66,6 +66,12 @@ def cr_class():
     return name
 
 
+# 生成班级人数
+def cr_class_num():
+    num = random.randint(10, 100)
+    return num
+
+
 if __name__ == '__main__':
     print(cr_student_name())
     print(cr_staff_name())

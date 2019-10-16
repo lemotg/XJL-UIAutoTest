@@ -118,6 +118,16 @@ class PySelenium(object):
         except Exception:
             raise ValueError('element错误！')
 
+    # 获取表格数据
+    def get_tr_td(self, node_kw, key, td_num):
+        try:
+            self.sleep()
+            element = self.get_element(node_kw, key)
+            self.sleep()
+            return element.find_elements_by_css_selector('td')[td_num].text
+        except Exception:
+            raise ValueError('element错误！')
+
     # 清空元素内容
     def element_clear(self, node_kw, key):
         try:
