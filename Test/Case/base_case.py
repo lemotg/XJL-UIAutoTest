@@ -15,6 +15,7 @@ from Test.Business.login_business import LoginBusiness
 from Test.Business.home_business import HomeBusiness
 from Test.Business.account_business import AccountBusiness
 from Test.Business.course_business import CourseBusiness
+from Test.Business.class_business import ClassBusiness
 
 
 # Case基类（登录业务）
@@ -73,6 +74,10 @@ class BaseCase(unittest.TestCase, LogInfo):
         # 课程管理业务流程
         LogInfo().log.info('Course Cases Suite Start Running')
         cls.course = CourseBusiness(cls.driver)
+
+        # 班级管理业务流程
+        LogInfo().log.info('Class Cases Suite Start Running')
+        cls.classroom = ClassBusiness(cls.driver)
 
         # 其他业务流程
 
