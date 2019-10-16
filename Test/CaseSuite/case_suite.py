@@ -44,5 +44,6 @@ def case_suite():
     # 客户池用例集
     suite.addTest(CustomerCase('test_1'))
     suite.addTest(CustomerCase('test_2'))
+    suite.addTest(CustomerCase('test_3'))
 
     return suite
