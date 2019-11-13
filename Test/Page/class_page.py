@@ -87,3 +87,15 @@ class ClassPage(object):
     # 获取线上课程列表中第一条数据的班级名称
     def get_list_online_class_name(self, num):
         return self.element.get_tr_td_asc('ClassManage', 'OnlineListFirstRow', num)
+
+    """
+    排课相关
+    """
+
+    # 点击排课按钮
+    def click_plan_class_btn(self):
+        self.element.js_click_element('ClassManage', 'PlanClassBtn')
+
+    # 获取排课页面历史课程文字
+    def get_history_schedule(self):
+        return self.element.get_element_text('ClassManage', 'HistorySchedule')

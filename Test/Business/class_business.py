@@ -45,3 +45,9 @@ class ClassBusiness(object):
         self.class_business.input_class_name(name)
         self.class_business.submit_online_class_info()
         return self.class_business.get_list_online_class_name(td_num)
+
+    # 进入排课页面
+    def go_plan_class_page(self):
+        self.class_business.click_plan_class_btn()
+        return self.class_business.get_history_schedule()
+

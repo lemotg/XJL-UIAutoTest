@@ -11,6 +11,7 @@ from Test.Case.case02_Account import AccountCase
 from Test.Case.case03_Course import CourseCase
 from Test.Case.case04_Class import ClassCase
 from Test.Case.case05_Customer import CustomerCase
+from Test.Case.case06_PlanCourse import PlanCourseCase
 
 
 def case_suite():
@@ -45,5 +46,9 @@ def case_suite():
     suite.addTest(CustomerCase('test_1'))
     suite.addTest(CustomerCase('test_2'))
     suite.addTest(CustomerCase('test_3'))
+
+    # 排课用例集
+    suite.addTest(PlanCourseCase('test_1'))
+    suite.addTest(PlanCourseCase('test_2'))
 
     return suite
