@@ -118,6 +118,23 @@ class PySelenium(object):
         except Exception:
             raise ValueError('element错误！')
 
+    # 点击选择上课周期（div_span选择器）
+    def get_div_span(self, node_kw, key, span_num=None):
+        try:
+            element = self.get_element(node_kw, key)
+            self.sleep()
+            element_spans = element.find_elements_by_css_selector('span')
+            if span_num is None:
+                count = len(element_spans)
+                i = random.randint(0, count - 1)
+                self.driver.execute_script("arguments[0].click();", element_spans[i])
+                self.sleep()
+            else:
+                self.driver.execute_script("arguments[0].click();", element_spans[span_num])
+                self.sleep()
+        except Exception:
+            raise ValueError('element错误！')
+
     # 点击日历选择器(table_tr_td选择器)
     def get_tr_td(self, node_kw, key, tr_num=None, td_num=None):
         try:
