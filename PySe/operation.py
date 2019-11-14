@@ -118,6 +118,34 @@ class PySelenium(object):
         except Exception:
             raise ValueError('element错误！')
 
+    # 点击日历选择器(table_tr_td选择器)
+    def get_tr_td(self, node_kw, key, tr_num=None, td_num=None):
+        try:
+            element = self.get_element(node_kw, key)
+            self.sleep()
+            element_trs = element.find_elements_by_css_selector('tr')
+            # 确定table中的tr位置
+            if tr_num is None:
+                count = len(element_trs)
+                i = random.randint(0, count - 1)
+                element_tr = element_trs[i]
+            else:
+                element_tr = element_trs[tr_num]
+
+            # 确定tr下的td位置
+            element_tds = element_tr.find_elements_by_css_selector('td')
+            if td_num is None:
+                count = len(element_tds)
+                i = random.randint(0, count - 1)
+                self.driver.execute_script("arguments[0].click();", element_tds[i])
+                self.sleep()
+            else:
+                self.driver.execute_script("arguments[0].click();", element_tds[td_num])
+                self.sleep()
+
+        except Exception:
+            raise ValueError('element错误！')
+
     # 获取表格数据(最新的至于底部)
     def get_tr_td_asc(self, node_kw, key, td_num):
         try:
