@@ -123,7 +123,7 @@ class PySelenium(object):
         try:
             element = self.get_element(node_kw, key)
             self.sleep()
-            element_spans = element.find_elements_by_css_selector('span')
+            element_spans = element.find_elements_by_class_name('el-popover__reference')
             if span_num is None:
                 count = len(element_spans)
                 i = random.randint(0, count - 1)
@@ -144,7 +144,7 @@ class PySelenium(object):
             # 确定table中的tr位置
             if tr_num is None:
                 count = len(element_trs)
-                i = random.randint(0, count - 1)
+                i = random.randint(1, count - 2)
                 element_tr = element_trs[i]
             else:
                 element_tr = element_trs[tr_num]
