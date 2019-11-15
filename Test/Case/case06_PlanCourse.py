@@ -5,6 +5,7 @@
 # @describe: 排课测试用例
 
 import unittest
+import time
 
 from Utils.get_log import LogInfo
 from Test.Case.base_case import BaseCase
@@ -24,6 +25,12 @@ class PlanCourseCase(BaseCase, LogInfo):
         self.log.info('TestCase2 Start Running')
         text = self.classroom.go_plan_class_page()
         self.assertEqual('历史课表', text, '历史课表按钮文字不一致 --- 测试用例不通过')
+
+    def test_3(self):
+        """ 按时间进行排课 """
+        self.log.info('TestCase3 Start Running')
+        self.classroom.plan_class_by_time()
+        time.sleep(5)
 
 
 if __name__ == '__main__':

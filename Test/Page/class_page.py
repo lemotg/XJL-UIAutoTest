@@ -99,3 +99,39 @@ class ClassPage(object):
     # 获取排课页面历史课程文字
     def get_history_schedule(self):
         return self.element.get_element_text('ClassManage', 'HistorySchedule')
+
+    # 点击选择按时间排课
+    def click_plan_class_by_time(self):
+        self.element.js_click_element('ClassManage', 'PlanClassByTime')
+
+    # 点击选择按次数排课
+    def click_plan_class_by_count(self):
+        self.element.js_click_element('ClassManage', 'PlanClassByCount')
+
+    # 点击选择按日历排课
+    def click_plan_class_by_calendar(self):
+        self.element.js_click_element('ClassManage', 'PlanClassByCalendar')
+
+    # 点击日期选择器(by time)
+    def click_date_selector_by_time(self):
+        self.element.js_click_element('ClassManage', 'DateSelectorByTime')
+
+    # 点击选择第一页日期
+    def click_date_first_page(self):
+        self.element.get_tr_td('ClassManage', 'FirstSelectorPage')
+
+    # 点击选择第二页日期
+    def click_date_second_page(self):
+        self.element.get_tr_td('ClassManage', 'SecondSelectorPage')
+
+    # 点击选择日期为今天
+    def click_date_today(self):
+        self.element.js_click_element('ClassManage', 'SelectorToday')
+
+    # 点击选择星期(by time)
+    def click_week_by_time(self):
+        self.element.get_div_span('ClassManage', 'WeekSelectorByTime')
+
+    # 点击选择星期(by count)
+    def click_week_by_count(self):
+        self.element.get_div_span('ClassManage', 'WeekSelectorByCount')

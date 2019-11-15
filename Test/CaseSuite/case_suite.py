@@ -17,38 +17,39 @@ from Test.Case.case06_PlanCourse import PlanCourseCase
 def case_suite():
     suite = unittest.TestSuite()
     # 登录&退出用例集
-    suite.addTest(LoginCase('test_1'))
-    suite.addTest(LoginCase('test_2'))
-
-    # 员工管理用例集
-    suite.addTest(AccountCase('test_1'))
-    suite.addTest(AccountCase('test_2'))
-    suite.addTest(AccountCase('test_3'))
-
-    # 课程管理用例集
-    suite.addTest(CourseCase('test_1'))
-    suite.addTest(CourseCase('test_2'))
-    suite.addTest(CourseCase('test_3'))
-    suite.addTest(CourseCase('test_4'))
-    suite.addTest(CourseCase('test_5'))
-    suite.addTest(CourseCase('test_6'))
-    suite.addTest(CourseCase('test_7'))
-    suite.addTest(CourseCase('test_8'))
-
-    # 班级管理用例集
-    suite.addTest(ClassCase('test_1'))
-    suite.addTest(ClassCase('test_2'))
-    suite.addTest(ClassCase('test_3'))
-    suite.addTest(ClassCase('test_4'))
-    suite.addTest(ClassCase('test_5'))
-
-    # 客户池用例集
-    suite.addTest(CustomerCase('test_1'))
-    suite.addTest(CustomerCase('test_2'))
-    suite.addTest(CustomerCase('test_3'))
+    # suite.addTest(LoginCase('test_1'))
+    # suite.addTest(LoginCase('test_2'))
+    #
+    # # 员工管理用例集
+    # suite.addTest(AccountCase('test_1'))
+    # suite.addTest(AccountCase('test_2'))
+    # suite.addTest(AccountCase('test_3'))
+    #
+    # # 课程管理用例集
+    # suite.addTest(CourseCase('test_1'))
+    # suite.addTest(CourseCase('test_2'))
+    # suite.addTest(CourseCase('test_3'))
+    # suite.addTest(CourseCase('test_4'))
+    # suite.addTest(CourseCase('test_5'))
+    # suite.addTest(CourseCase('test_6'))
+    # suite.addTest(CourseCase('test_7'))
+    # suite.addTest(CourseCase('test_8'))
+    #
+    # # 班级管理用例集
+    # suite.addTest(ClassCase('test_1'))
+    # suite.addTest(ClassCase('test_2'))
+    # suite.addTest(ClassCase('test_3'))
+    # suite.addTest(ClassCase('test_4'))
+    # suite.addTest(ClassCase('test_5'))
+    #
+    # # 客户池用例集
+    # suite.addTest(CustomerCase('test_1'))
+    # suite.addTest(CustomerCase('test_2'))
+    # suite.addTest(CustomerCase('test_3'))
 
     # 排课用例集
     suite.addTest(PlanCourseCase('test_1'))
     suite.addTest(PlanCourseCase('test_2'))
+    suite.addTest(PlanCourseCase('test_3'))
 
     return suite

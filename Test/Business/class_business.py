@@ -46,8 +46,20 @@ class ClassBusiness(object):
         self.class_business.submit_online_class_info()
         return self.class_business.get_list_online_class_name(td_num)
 
+    """
+    排课
+    """
+
     # 进入排课页面
     def go_plan_class_page(self):
         self.class_business.click_plan_class_btn()
         return self.class_business.get_history_schedule()
 
+    # 按时间排课
+    def plan_class_by_time(self):
+        self.class_business.click_plan_class_by_time()
+        self.class_business.click_date_selector_by_time()
+        self.class_business.click_date_today()
+        # self.class_business.click_date_first_page()
+        self.class_business.click_date_second_page()
+        self.class_business.click_week_by_time()
