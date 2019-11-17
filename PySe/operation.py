@@ -36,7 +36,7 @@ class PySelenium(object):
             elif by == 'classname':
                 return self.driver.find_elements_by_class_name(value)[num]
             elif by == 'xpath':
-                return self.driver.find_elements_by_xpath(value)[num]
+                return self.driver.find_element_by_xpath(value)
         except Exception:
             raise NameError('选择器错误！')
 
