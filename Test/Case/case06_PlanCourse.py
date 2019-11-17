@@ -5,7 +5,6 @@
 # @describe: 排课测试用例
 
 import unittest
-import time
 
 from Utils.get_log import LogInfo
 from Test.Case.base_case import BaseCase
@@ -30,7 +29,6 @@ class PlanCourseCase(BaseCase, LogInfo):
         """ 按时间进行排课 """
         self.log.info('TestCase3 Start Running')
         self.classroom.plan_class_by_time()
-        time.sleep(5)
 
 
 if __name__ == '__main__':

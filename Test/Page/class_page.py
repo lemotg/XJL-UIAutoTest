@@ -135,3 +135,7 @@ class ClassPage(object):
     # 点击选择星期(by count)
     def click_week_by_count(self):
         self.element.get_div_span('ClassManage', 'WeekSelectorByCount')
+
+    # 输入时间
+    def input_time(self):
+        self.element.js_click_element('ClassManage', 'ClassTimeSelectorInput')

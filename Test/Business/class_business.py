@@ -63,3 +63,4 @@ class ClassBusiness(object):
         # self.class_business.click_date_first_page()
         self.class_business.click_date_second_page()
         self.class_business.click_week_by_time()
+        self.class_business.input_time()
